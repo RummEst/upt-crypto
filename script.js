@@ -1,0 +1,1 @@
+const backEndPoint = "http://194.106.124.118:5000/get_response_text"

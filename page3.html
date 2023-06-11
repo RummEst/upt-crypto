@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Open interest</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<!-- Navigation menu -->
+	<div class="sidebar">
+		<a href="index.html">Home</a>
+		<a href="page1.html">Long/Short</a>
+		<a href="page2.html">Funding</a>
+		<a href="#" class="active">BTC Trends</a>
+	</div>
+
+	<div class="toolbar" style="margin-left: 200px;">
+		<div class="toolbar-section">
+		  <label for="start-date-selector">Start Date:</label>
+		  <input type="date" id="start-date-selector" name="start-date-selector" value="2019-02-20">
+	  
+		  <button onclick="startCharts()">Refresh</button>
+		  <a style="margin-left: 25%; width: 480px;" class="titletxt" id="demoFont">BTC Trends</a>
+		</div>
+	</div>
+	  
+	  
+
+	<!-- Page content -->
+	<div class="content">
+		
+		<div class="chartTrends" id="chartdiv">
+			<div class="split"><canvas id="chart1"></canvas></div>
+			<div class="split"><canvas id="chart2"></canvas></div>
+			<br>
+			<div class="split"><canvas id="chart3"></canvas></div>
+			<div class="split"><canvas id="chart4"></canvas></div>
+		</div>
+	</div>
+
+	<!-- Script -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="chartjs-plugin-crosshair.js"></script>
+	<script src="script.js"></script>
+	<script src="page3.js"></script>
+	<script>
+	startCharts()
+	</script>
+</body>
+</html>
+
+

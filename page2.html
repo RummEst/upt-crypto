@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Funding</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="loadingBar.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<!-- Navigation menu -->
+	<div class="sidebar">
+		<a href="index.html">Home</a>
+		<a href="page1.html">Long/Short</a>
+		<a href="#" class="active">Funding</a>
+		<a href="page3.html">BTC Trends</a>
+	</div>
+
+	<div class="toolbar" style="margin-left: 200px;">
+		<div class="toolbar-section">
+		  <label for="interval-selector">Interval:</label>
+		  <select id="interval-selector">
+			<option value="h1">1h</option>
+			<option value="h4">4h</option>
+			<option value="h12">12h</option>
+			<option value="h24">24h</option>
+		  </select>
+		  <label for="range-selector">Timeframe:</label>
+		  <select id="range-selector">
+			<option value="1d">1d</option>
+			<option value="7d">7d</option>
+			<option value="30d">30d</option>
+		  </select>
+		</div>
+		<div class="toolbar-section-divider">&nbsp</div>
+		<div class="toolbar-section">
+		  <div class="toolbar-divider"></div>
+		  <label for="coin-selector"></label>
+		  <select id="coin-selector">
+			<option value="BTC">BTC</option>
+			<option value="ETH">ETH</option>
+			<option value="XRP">XRP</option>
+			<option value="DOGE">DOGE</option>
+			<option value="LTC">LTC</option>
+			<option value="BNB">BNB</option>
+			<option value="ARB">ARB</option>
+			<option value="SOL">SOL</option>
+			<option value="APT">APT</option>
+			<option value="ADA">ADA</option>
+			<option value="MATIC">MATIC</option>
+			<option value="DOT">DOT</option>
+			<option value="LINK">LINK</option>
+			<option value="FIL">FIL</option>
+			<option value="CFX">CFX</option>
+			<option value="OP">OP</option>
+			<option value="SXP">SXP</option>
+			<option value="ETC">ETC</option>
+			<option value="ATOM">ATOM</option>
+			<option value="EOS">EOS</option>
+			<option value="BCH">BCH</option>
+			<option value="MASK">MASK</option>
+			<option value="AVAX">AVAX</option>
+			<option value="APE">APE</option>
+			<option value="FTM">FTM</option>
+			<option value="TRX">TRX</option>
+			<option value="LDO">LDO</option>
+			<option value="NEAR">NEAR</option>
+			<option value="SAND">SAND</option>
+			<option value="GALA">GALA</option>
+			<option value="USDC">USDC</option>
+			<option value="DYDX">DYDX</option>
+			<option value="1000SHIB">1kSHIB</option>
+			<option value="GMT">GMT</option>
+			<option value="UNI">UNI</option>
+			<option value="CRV">CRV</option>
+			<option value="AXS">AXS</option>
+			<option value="STX">STX</option>
+			<option value="MANA">MANA</option>
+			<option value="BLUR">BLUR</option>
+			<option value="AGIX">AGIX</option>
+			<option value="CHZ">CHZ</option>
+			<option value="SUSHI">SUSHI</option>
+			<option value="INJ">INJ</option>
+			<option value="SNX">SNX</option>
+			<option value="XLM">XLM</option>
+			<option value="AAVE">AAVE</option>
+			<option value="ZRX">ZRX</option>
+			<option value="MAGIC">MAGIC</option>
+			<option value="SHIB">SHIB</option>
+			<option value="ALGO">ALGO</option>
+			<option value="MKR">MKR</option>
+			<option value="1000LUNC">1kLUNC</option>
+			<option value="OMG">OMG</option>
+			<option value="GRT">GRT</option>
+			<option value="ZEC">ZEC</option>
+			<option value="DASH">DASH</option>
+			<option value="XMR">XMR</option>
+			<option value="ICP">ICP</option>
+			<option value="WAVES">WAVES</option>
+			<option value="ANKR">ANKR</option>
+			<option value="KLAY">KLAY</option>
+			<option value="TOMO">TOMO</option>
+			<option value="BNX">BNX</option>
+			<option value="NEO">NEO</option>
+			<option value="ZIL">ZIL</option>
+			<option value="1INCH">1INCH</option>
+		  </select>
+		  <button id="refresh-button"><i class="fa fa-plus"></i></button>
+		  <label for="coin-list"></label>
+		  <div id="coin-list" class="coin-list"></div>
+		</div>
+	  </div>
+	  
+	
+
+
+	<!-- Page content -->
+	<div class="content">
+		<h1>Funding Rate Averages × 100</h1>
+		
+		<div class="chartFund" id="chart">
+
+			<canvas id="myChart"></canvas>
+		</div>
+	</div>
+
+	<!-- Script -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
+	
+	<script src="script.js"></script>
+	<script src="page2.js"></script>
+	<script>
+
+
+		const ctx = document.getElementById('myChart').getContext('2d');
+		const myChart = new Chart(ctx, {
+		  type: 'line',
+		  data: {
+			datasets: [{
+			  label: 'Funding',
+			  data: [],
+			  borderColor: 'rgba(25, 25, 25, 1)',
+			  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+			  borderWidth: 1,
+			  fill: false
+			}]
+		  },
+		  options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			interaction: {
+				intersect: false,
+				mode: 'index'
+			},
+			plugins: {
+				crosshair: {
+					line: {
+						color: '#F66',  // crosshair line color
+						width: 1        // crosshair line width
+					},
+					zoom: {
+						enabled: true,                                      // enable zooming
+						zoomboxBackgroundColor: 'rgba(66,133,244,0.2)',     // background color of zoom box 
+						zoomboxBorderColor: '#48F',                         // border color of zoom box
+						zoomButtonText: 'Reset Zoom',                       // reset zoom button text
+						zoomButtonClass: 'reset-zoom',                      // reset zoom button class
+					},
+					callbacks: {
+						beforeZoom: () => function(start, end) {                  // called before zoom, return false to prevent zoom
+							return true;
+						},
+						afterZoom: () => function(start, end) {                   // called after zoom
+						}
+					}
+				}
+			},
+			scales: {
+			  xAxes: [{
+				type: 'time',
+				time: {
+				  unit: 'hour'
+				},
+				ticks: {
+				  source: 'data',
+				  autoSkip: true,
+				  maxTicksLimit: 10
+				}
+			  }],
+			  yAxes: [{
+				ticks: {
+				  min: -1,
+				  max: 1
+				}
+			  }]
+			}
+		  }
+		});
+
+		myChart.canvas.parentNode.style.height = '1024px';
+
+		function transformData(data) {
+			const transformedData = data.map(obj => {
+				const date = new Date(obj.createTime).toLocaleString('en-US', {
+				hour12: false,
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit',
+				hour: '2-digit',
+				minute: '2-digit',
+				second: '2-digit'
+				}).replace(',', '').replace(/\//g, '-');
+				return {x: date, y: obj.fundingRate * 100};
+			});
+			transformedData.pop();
+			return transformedData;
+		}
+
+
+
+
+	</script>
+
+	
+	<div id="loadingBox" style="display: none;">
+		<div id="loadingBoxInner">
+			<div id="loadingBarDIV"></div>
+		</div>
+	</div>  
+
+	<script src="loadingBarDIV.js"></script>
+</body>
+</html>

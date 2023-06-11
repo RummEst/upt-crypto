@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script async src="https://static.coinstats.app/widgets/coin-list-widget.js"></script>
+
+	<!-- Navigation menu -->
+	<div class="sidebar" style="width: 260px !important;">
+		<a href="#" class="active">Home</a>
+		<a href="page1.html">Long/Short</a>
+		<a href="page2.html">Funding</a>
+		<a href="page3.html">BTC Trends</a>
+		<coin-stats-list-widget locale="en" currency="USD" bg-color="rgba(0,0,0,1)" status-up-color="rgba(34,220,92,1)" status-down-color="#FE4747" text-color="#FFFFFF" font="Roboto, Arial, Helvetica" border-color="rgba(255,255,255,0.15)" width="200" top-coin="15"></coin-stats-list-widget>
+	</div>
+
+	<!-- Page content -->
+	<div class="content" style="margin-left: 260px !important; background-color: black;">
+		<div id="demoFont" class="titletxt">Crypto Intelligence</div>
+		<qc-heatmap height="865px" num-of-coins="100" currency-code="USD"></qc-heatmap>
+      
+		
+	</div>
+	<script src="https://www.cryptohopper.com/widgets/js/script"></script>
+	<script src="https://quantifycrypto.com/widgets/heatmaps/js/qc-heatmap-widget.js"></script>
+	<script src="script.js"></script>
+	<script>
+		setTimeout(() => {
+			const element = document.querySelector('coin-stats-list-widget');
+			const rows = element.getElementsByTagName('tr');
+			for (const element of rows) {
+				element.removeAttribute('onclick');
+			}
+			document.querySelector("body > div.sidebar > coin-stats-list-widget > div > div").remove()
+		}, 3000);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.sidebar a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.sidebar a:hover {
+	background-color: #555;
+}
+
+.sidebar a.active {
+	background-color: #555;
+}
+
+.content {
+    height: 100%;
+	margin-left: 200px;
+	padding: 20px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #252525;
+    padding: 2px;
+}
+
+.toolbar-section {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.toolbar-divider {
+    height: 20px;
+    border-left: 1px solid #fff;
+    margin: 0 10px;
+}
+
+.toolbar-section-divider {
+    height: 20px;
+    width: 20px;
+}
+
+.toolbar label {
+    color: #fff;
+    margin-right: 10px;
+    margin-left: 5%;
+}
+
+.toolbar select {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.toolbar select:disabled {
+    background-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+  
+
+
+.toolbar button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 5%;
+}
+
+.chartLS {
+    height: 100%;
+    width: 100%;
+}
+
+.chartTrends {
+    height: 40%;
+    width: 100%;
+}
+
+.chartFund {
+    height: 40%;
+    width: 100%;
+}
+
+.selected-coin {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 3px 6px;
+    margin: 3px 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.selected-coin:hover {
+    background-color: #f96f6f;
+}
+  
+.coin-list {
+    border: 1px solid #F5F5F5;
+    background-color: #333;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+.split30 {
+    margin: 10px;
+	width: 32%;
+	float: left;
+	position: relative;
+}
+
+.split70 {
+	width: 65%;
+	float: left;
+	position: relative;
+}
+
+.split {
+	width: 50%;
+	float: left;
+	position: relative;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.titletxt {
+    background: linear-gradient(
+        to right,
+        #7953cd 20%,
+        #00affa 30%,
+        #0190cd 70%,
+        #764ada 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}
+
+#demoFont {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: small-caps;
+    text-transform: none;
+}
